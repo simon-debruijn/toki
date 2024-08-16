@@ -4,6 +4,13 @@ A tool to decode and verify your jwt tokens.
 ## Installation
 For now you can clone the source code and do a `go build` to generate a binary.
 
+```
+git clone https://github.com/simon-debruijn/toki.git
+go build
+```
+
+After this you can add the binary ./toki to your path.
+
 ## Usage
 
 ```
