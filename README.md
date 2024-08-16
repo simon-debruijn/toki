@@ -6,6 +6,7 @@ For now you can clone the source code and do a `go build` to generate a binary.
 
 ```
 git clone https://github.com/simon-debruijn/toki.git
+cd ./toki
 go build
 ```
 
