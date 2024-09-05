@@ -17,8 +17,7 @@ func HandleDecode() {
 }
 
 func HandleVerify() {
-	var secret string
-	flag.StringVar(&secret, "secret", "", "a secret")
+	secret := flag.String("secret", "", "a secret")
 
 	if len(os.Args) < 3 {
 		panic("the token was not passed")
