@@ -10,7 +10,7 @@ var Algorithms = struct {
 	HS256:   "HS256",
 }
 
-func NewAlgorithmFrom(init string) Algorithm {
+func NewAlgorithm(init string) Algorithm {
 	if init == "HS256" {
 		return Algorithms.HS256
 	}

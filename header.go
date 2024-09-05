@@ -24,7 +24,7 @@ func (h *header) DecodedContent() map[string]any {
 
 func (h *header) Algorithm() Algorithm {
 	input := h.DecodedContent()["alg"].(string)
-	algo := NewAlgorithmFrom(input)
+	algo := NewAlgorithm(input)
 
 	if algo == Algorithms.INVALID {
 		panic(fmt.Sprintf("Algorithm %s is not yet supported", input))

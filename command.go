@@ -17,9 +17,11 @@ var Commands = struct {
 func (c Command) Help() string {
 	switch c {
 	case Commands.DECODE:
-		return "toki decode <token>                                  decode a token"
+		return "toki decode <token>                                  Decode a token"
 	case Commands.VERIFY:
-		return "toki verify <token> --secret <secret>                verify the signature of a token"
+		return "toki verify <token> --secret <secret>                Verify the signature of a token"
+	case Commands.HELP:
+		return "toki help                                            Get information about the possible commands"
 	default:
 		return ""
 	}

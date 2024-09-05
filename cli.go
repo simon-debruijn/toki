@@ -31,11 +31,11 @@ func HandleVerify() {
 
 	token := NewToken(os.Args[2])
 
-	if secret == "" {
+	if *secret == "" {
 		panic("should provide a --secret flag")
 	}
 
-	err := token.Verify(secret)
+	err := token.Verify(*secret)
 
 	if err != nil {
 		panic(err.Error())
@@ -49,24 +49,33 @@ func HandleHelp() {
 }
 
 func HandleInvalid() {
-	fmt.Println("command unknown")
+	help := flag.Bool("help", false, "")
+
+	flag.CommandLine.Parse(os.Args[1:])
+
+	if !*help {
+		fmt.Println("Unknown command")
+	}
+
 	HandleHelp()
 }
 
 func GetHelpCommands() string {
 	return fmt.Sprintf(`
-	toki is a tool to decode and verify your jwt tokens.
+toki is a tool to decode and verify your jwt tokens.
 	
-	Usage:
+Usage:
 	
-	toki <command> [options]
+toki <command> [options]
 	
-	The commands are:
+The commands are:
 	
-		%s
-		%s
-	
-	Options:
-		--secret                The secret to verify the signature of the token
-	`, Commands.DECODE.Help(), Commands.VERIFY.Help())
+	%s
+	%s
+	%s
+
+Options:
+	--secret                The secret to verify the signature of the token
+	--help                  Get information about the possible commands
+`, Commands.DECODE.Help(), Commands.VERIFY.Help(), Commands.HELP.Help())
 }
