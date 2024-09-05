@@ -65,7 +65,7 @@ func (t *myToken) MarshalJSON() ([]byte, error) {
 	}, "", "  ")
 }
 
-func TryNewTokenFromStr(token string) Token {
+func NewToken(token string) Token {
 	parts := strings.Split(token, ".")
 	if len(parts) != 3 {
 		panic(fmt.Errorf("the provided jwt token isn't valid"))

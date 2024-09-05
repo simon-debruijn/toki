@@ -6,10 +6,12 @@ var Commands = struct {
 	INVALID Command
 	DECODE  Command
 	VERIFY  Command
+	HELP    Command
 }{
 	INVALID: "invalid",
 	DECODE:  "decode",
 	VERIFY:  "verify",
+	HELP:    "help",
 }
 
 func (c Command) Help() string {
@@ -23,13 +25,17 @@ func (c Command) Help() string {
 	}
 }
 
-func CommandFrom(input string) Command {
+func NewCommand(input string) Command {
 	if input == "decode" {
 		return Commands.DECODE
 	}
 
 	if input == "verify" {
 		return Commands.VERIFY
+	}
+
+	if input == "help" {
+		return Commands.HELP
 	}
 
 	return Commands.INVALID
